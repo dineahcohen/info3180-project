@@ -21,9 +21,53 @@ def about():
     return render_template('about.html')
 
 @app.route('/profile', methods=['GET','POST'])
-def addProfile(): 
-    form = UserForm() 
-    return render_template("addprofile.html", form=form) 
+def addProfile():
+    form= UserForm()
+    if request.method == "POST":
+        if form.validate_on_submit() == True:
+            #Gets the user input from the form
+            fname = form.firstname.data
+            lname = form.lastname.data
+            gender = form.gender.data
+            email = form.email.data
+            location = form.location.data
+            bio = form.bio.data
+            date = format_date_joined()
+            filename = assignPath(form.photo.data)
+            
+            #create user object and add to database
+            user = UserProfile(fname,lname,gender,email,location,bio, date, filename)
+            db.session.add(user)
+            db.session.commit()
+
+            # remember to flash a message to the user
+            flash('User information submitted successfully.', 'success')
+        else:
+            flash('User information not submitted', 'danger')
+        return redirect(url_for("profiles"))  # they should be redirected to a secure-page route instead
+    return render_template("addprofile.html", form=form)
+
+#Format date for profile
+def format_date_joined():
+    now = datetime.datetime.now() #current date
+    ## Format the date to return only month and year date
+    return now.strftime("%B %d, %Y")
+
+#Save the uploaded photo to a folder
+def assignPath(upload):
+    filename = secure_filename(upload.filename)
+    upload.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    return filename
+
+@app.route("/profiles")
+def profiles():
+    user_profiles = db.session.query(UserProfile).all()
+    return render_template("profilelist.html", users=user_profiles)
+
+@app.route("/profile/<userid>")
+def profileId(userid):
+    user = db.session.query(UserProfile).filter_by(id=int(userid)).first()
+    return render_template("individual.html", user=user)
 
 # The functions below should be applicable to all Flask apps.
 # Flash errors from the form if validation fails

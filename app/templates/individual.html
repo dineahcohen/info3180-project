@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block main %}
+  <div class="contain">
+    <div class="card mb-3 borderCol" style="max-width: 480px;">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="{{ url_for('static', filename="uploads/"+user.photo) }}" class="card-img image" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <p class="card-text heading"> {{user.first_name}} {{user.last_name}} </p>
+                <p class="card-text description text-muted"><i class="far fa-envelope"></i> {{user.email}} </p>
+                <p class="card-text description text-muted"><i class="fas fa-map-marker-alt"></i> {{user.location}} </p>
+                <p class="card-text description text-muted"><i class="far fa-calendar"></i> Joined on {{user.date}} </p>
+            </div>
+        </div>
+        
+        <div class="card-body">
+          <h5 class="class-title edit text-muted">About Me</h5>
+          <p class="card-yext bio text-muted"> {{user.bio}} </p>
+          <div class="card-footer bg-transparent border-success no-border centered">
+            <button class="btn" name="message">Send Message</button> <button class="btn btn-primary" name="follow">Follow</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

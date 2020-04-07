@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block main %}
+  <div class=outer>
+    <div class="middle">
+      <div class="inner">
+        <h1>Profiles</h1>
+        {% for user in users %}
+          <div class="card mb-3 borderCol" style="max-width: 590px;">
+            <div class="row no-gutters">
+              <div class="col-md-3">
+                <img src="{{ url_for('static', filename="uploads/"+user.photo) }}" class="card-img fixImg" alt="...">
+              </div>
+              <div class="col-md-5">
+                  <div class="card-body">
+                      <p class="card-text profile"> {{user.first_name}} {{user.last_name}} </p>
+                      <p class="card-text descrip"><i class="far fa-user"></i> {{user.gender}} </p>
+                      <p class="card-text descrip"><i class="fas fa-map-marker-alt"></i> {{user.location}} </p>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card-body">
+                  <button type="button" name="view" onclick="window.location.href='{{ url_for( 'profileId' , userid=user.id ) }}';">View Profile</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div
+    </div>
+  </div>
+
+{% endblock %}

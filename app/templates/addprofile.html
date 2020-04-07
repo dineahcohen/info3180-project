@@ -7,12 +7,12 @@
     <form action="{{ url_for('addProfile')}}" method="post" enctype="multipart/form-data">
         {{ form.csrf_token }}
         <div class="form-group">
-            {{ form.first_name.label('First Name') }}
-            {{ form.first_name(class='form-control') }}
+            {{ form.firstname.label('First Name') }}
+            {{ form.firstname(class='form-control') }}
         </div>
         <div class="form-group">
-            {{ form.last_name.label('Last Name') }}
-            {{ form.last_name(class='form-control') }}
+            {{ form.lastname.label('Last Name') }}
+            {{ form.lastname(class='form-control') }}
         </div>
         <div class="form-group">
             {{ form.gender.label('Gender') }}
@@ -34,8 +34,9 @@
             {{ form.profile_picture.label('Profile Picture') }}
             {{ form.profile_picture(class='form-control') }}
         </div>
-        <button type="submit" class="submitBtn">Add Profile</button>
-
+        <div class="f-group">
+            {{form.submit}}
+        </div>
     </form>
 </div>
 {% endblock %}
