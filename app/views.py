@@ -3,9 +3,13 @@ Flask Documentation:     http://flask.pocoo.org/docs/
 Jinja2 Documentation:    http://jinja.pocoo.org/2/documentation/
 Werkzeug Documentation:  http://werkzeug.pocoo.org/documentation/
 """
-from app import app
+import os
+from app import app, db
 from flask import render_template, request, redirect, url_for, flash
+from werkzeug.utils import secure_filename
 from app.forms import UserForm
+from app.models import UserProfile
+import datetime
 
 ###
 # Routing for your application.
@@ -33,7 +37,7 @@ def addProfile():
             location = form.location.data
             bio = form.bio.data
             date = format_date_joined()
-            filename = assignPath(form.photo.data)
+            filename = assignPath(form.profile_picture.data)
             
             #create user object and add to database
             user = UserProfile(fname,lname,gender,email,location,bio, date, filename)

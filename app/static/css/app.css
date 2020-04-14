@@ -1,12 +1,174 @@
 body {
     padding-top: 5rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: #ebf5fb;
 }
 
-.pic {
-    width: 100%;
-    height: 100%;
+.outer {
+  left: 0;
+  margin-left: 200px;
 }
 
-.col-4{
-    margin-bottom: 1.5rem;
+.middle {
+  vertical-align: middle;
+}
+
+.inner {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+h1{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.label{
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+}
+
+.f-group{
+    margin-bottom: 15px;
+}
+
+.f-group input{
+    width: 350px;
+    display: block;
+}
+
+select{
+    width: 350px !important;
+}
+
+.f-group textarea{
+    width: 350px;
+    height: 100px;
+}
+
+
+.f-group input[type=file]{
+    color: transparent;
+}
+
+button, input{
+    border-radius: 5px;
+    color: #fff;
+}
+
+input[type=submit]{
+    background-color:  #7bd417;
+    font-weight: bold;
+    width: 100px;
+    height: 25px;
+    margin-top: 10px;
+    font-size: 14px;
+    border: none;
+}
+
+
+button[name="view"]{
+    background-color: #7bd417 !important;
+    width: 116px;
+    height: 27px;
+    font-weight: bold;
+    font-size: 11px;
+    margin: 20px 10px 0 0;
+    border: none;
+}
+
+/*Adds the blue boder to the top of the profiles*/
+.borderCol{
+    border-top-color:  #DD2802 !important;
+    border-top-width: 4px !important;
+    border-radius: 7px !important;
+}
+
+
+/*Aligns the profile pictures on the profiles page*/
+.fixImg{
+    margin: 15px 0 0 15px;
+    height: 100px;
+}
+
+.profile{
+    font-weight: 900;
+    font-size: 14px;
+    margin: 0 0 4px 20px;
+}
+
+.descrip{
+    margin: 0 0 4px 20px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #979a9a;
+
+}
+
+.contain{
+    display: flex;
+    justify-content: center;
+}
+
+
+.image{
+    margin-top: 20px;
+    margin-left: 40px;
+    height: 120px;
+}
+
+.heading{
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0 0 3px 38px;
+}
+
+.description{
+    margin: 0 0 14px 38px;
+    font-size: 13px;
+}
+
+h5{
+    font-weight: bold;
+}
+
+.edit{
+    font-size: 12px;
+    margin: 0 0 8px 24px;
+    font-weight: bolder;
+}
+
+.bio{
+    font-size: 12px;
+    margin: 0 0 8px 24px;
+}
+
+.centered{
+    text-align: center;
+    padding: 20px 0 0 0 !important;
+}
+
+.no-border{
+    border-top: none !important;
+}
+
+button[name="message"]{
+    background-color: #7bd417 !important;
+    width: 170px;
+    height: 30px;
+    font-weight: bold;
+    border-radius: 6px;
+    font-size: 12px;
+    margin: 0 15px 0 0;
+}
+
+button[name="follow"]{
+    width: 170px;
+    height: 30px;
+    font-weight: bold;
+    border-radius: 6px;
+    font-size: 12px;
+    margin: 0 0 0 15px;
 }
